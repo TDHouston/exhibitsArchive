@@ -16,5 +16,6 @@ module.exports = {
       'warn',
       { allowConstantExport: true },
     ],
+    'react/no-unknown-property': 'off', // Add this line to disable the rule
   },
 }

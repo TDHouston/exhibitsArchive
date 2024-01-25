@@ -1,85 +1,96 @@
-import { useEffect, useRef } from "react";
 import * as THREE from "three";
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
+import { Canvas } from "@react-three/fiber";
 import "./App.css";
+import Home from "./components/Home";
 
-function Setup() {
-  const canvasRef = useRef();
+// function Setup() {
+//   const canvasRef = useRef();
 
-  useEffect(() => {
-    const canvas = canvasRef.current;
+//   useEffect(() => {
+//     const canvas = canvasRef.current;
 
-    // Scene
-    const scene = new THREE.Scene();
+//     // Scene
+//     const scene = new THREE.Scene();
 
-    // Sizes
-    const sizes = {
-      width: window.innerWidth,
-      height: window.innerHeight,
-    };
+//     // Lights
+//     const ambientLight = new THREE.AmbientLight(0x404040, 50);
+//     scene.add(ambientLight);
 
-    window.addEventListener("resize", () => {
-      // Update sizes
-      sizes.width = window.innerWidth;
-      sizes.height = window.innerHeight;
+//     // Sizes
+//     const sizes = {
+//       width: window.innerWidth,
+//       height: window.innerHeight,
+//     };
 
-      // Update camera
-      camera.aspect = sizes.width / sizes.height;
-      camera.updateProjectionMatrix();
+//     window.addEventListener("resize", () => {
+//       // Update sizes
+//       sizes.width = window.innerWidth;
+//       sizes.height = window.innerHeight;
 
-      // Update renderer
-      renderer.setSize(sizes.width, sizes.height);
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    });
+//       // Update camera
+//       camera.aspect = sizes.width / sizes.height;
+//       camera.updateProjectionMatrix();
 
-    // Camera
-    const camera = new THREE.PerspectiveCamera(
-      75,
-      sizes.width / sizes.height,
-      1,
-      500
-    );
-    camera.position.z = 3;
-    scene.add(camera);
+//       // Update renderer
+//       renderer.setSize(sizes.width, sizes.height);
+//       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+//     });
 
-    // Objects
-    const geometry = new THREE.BoxGeometry(1, 1, 1);
-    const material = new THREE.MeshBasicMaterial({ color: 0xff0000 });
-    const mesh = new THREE.Mesh(geometry, material);
-    scene.add(mesh);
+//     // Camera
+//     const camera = new THREE.PerspectiveCamera(
+//       75,
+//       sizes.width / sizes.height,
+//       1,
+//       500
+//     );
+//     camera.position.z = 3;
+//     scene.add(camera);
 
-    // Controls
-    const controls = new OrbitControls(camera, canvas);
-    controls.enableDamping = true;
+//     // Objects
+//     const geometry = new THREE.BoxGeometry(1, 1, 1);
+//     const material = new THREE.MeshBasicMaterial({ color: 0xff0000 });
+//     const mesh = new THREE.Mesh(geometry, material);
+//     scene.add(mesh);
 
-    // Renderer
-    const renderer = new THREE.WebGLRenderer({
-      canvas: canvas,
-    });
-    renderer.setSize(sizes.width, sizes.height);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+//     // Controls
+//     const controls = new OrbitControls(camera, canvas);
+//     controls.enableDamping = true;
 
-    const sceneHandler = () => {
-      // Update controls
-      controls.update();
+//     // Renderer
+//     const renderer = new THREE.WebGLRenderer({
+//       canvas: canvas,
+//     });
+//     renderer.setSize(sizes.width, sizes.height);
+//     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-      // Render
-      renderer.render(scene, camera);
+//     const sceneHandler = () => {
+//       // Update controls
+//       controls.update();
 
-      window.requestAnimationFrame(sceneHandler);
-    };
+//       // Render
+//       renderer.render(scene, camera);
 
-    sceneHandler();
-  }, []);
+//       window.requestAnimationFrame(sceneHandler);
+//     };
 
-  return <canvas ref={canvasRef}></canvas>;
-}
+//     sceneHandler();
+//   }, []);
+
+//   return <canvas ref={canvasRef}></canvas>;
+// }
 
 function App() {
   return (
-    <>
-      <Setup />
-    </>
+    <Canvas
+      gl={{
+        antialias: true,
+        toneMapping: THREE.ACESFilmicToneMapping,
+        outputColorSpace: THREE.SRGBColorSpace,
+      }}
+      camera={{ fov: 45, near: 0.1, far: 200, position: [3, 2, 6] }}
+    >
+      <Home />
+    </Canvas>
   );
 }
 export default App;
