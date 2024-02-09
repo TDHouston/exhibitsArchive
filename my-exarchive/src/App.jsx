@@ -2,7 +2,8 @@ import * as THREE from "three";
 import { Canvas } from "@react-three/fiber";
 import "./App.css";
 import Home from "./components/Home";
-import { OrbitControls } from "@react-three/drei";
+import { PointerLockControls } from "@react-three/drei";
+import { MovementControls } from "./utils/MovementControls";
 
 function App() {
   return (
@@ -14,10 +15,12 @@ function App() {
       }}
       camera={{ position: [5, 8, 40] }}
     >
-      <OrbitControls />
+      {/* <OrbitControls /> */}
       <ambientLight intensity={3} />
-
       <Home />
+
+      <PointerLockControls />
+      <MovementControls/>
     </Canvas>
   );
 }
