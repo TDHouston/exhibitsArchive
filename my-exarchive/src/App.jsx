@@ -3,7 +3,8 @@ import { Canvas } from "@react-three/fiber";
 import "./App.css";
 import Home from "./components/Home";
 import { PointerLockControls } from "@react-three/drei";
-import { MovementControls } from "./utils/MovementControls";
+import { Physics } from "@react-three/cannon";
+import PlayerObj from "./utils/PlayerObj";
 
 function App() {
   return (
@@ -13,14 +14,15 @@ function App() {
         toneMapping: THREE.ACESFilmicToneMapping,
         outputColorSpace: THREE.SRGBColorSpace,
       }}
-      camera={{ position: [5, 8, 40] }}
     >
-      {/* <OrbitControls /> */}
       <ambientLight intensity={3} />
-      <Home />
+
+      <Physics>
+        <PlayerObj controls position={[5, 12, 40]} args={[0.5]} color="yellow" />
+        <Home />
+      </Physics>
 
       <PointerLockControls />
-      <MovementControls/>
     </Canvas>
   );
 }

@@ -1,80 +1,40 @@
-import { useFrame } from "@react-three/fiber";
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 
+/*****************
+ * Player Controls
+ ****************/
 export const MovementControls = () => {
-  // Setup for StateKey presses
+  const keys = {
+    KeyW: "forward",
+    KeyS: "backward",
+    KeyA: "left",
+    KeyD: "right",
+    Space: "jump",
+  };
+  const moveFieldByKey = (key) => keys[key];
+
   const [movement, setMovement] = useState({
     forward: false,
     backward: false,
     left: false,
     right: false,
+    jump: false,
   });
 
-  // Event Listeners for Keyboard Events
   useEffect(() => {
-    const handleKeyDown = (event) => {
-      switch (event.key) {
-        case "ArrowUp":
-        case "w":
-          setMovement((m) => ({ ...m, forward: true }));
-          break;
-        case "ArrowDown":
-        case "s":
-          setMovement((m) => ({ ...m, backward: true }));
-          break;
-        case "ArrowLeft":
-        case "a":
-          setMovement((m) => ({ ...m, left: true }));
-          break;
-        case "ArrowRight":
-        case "d":
-          setMovement((m) => ({ ...m, right: true }));
-          break;
-        default:
-          break;
-      }
-    };
+    const handleKeyDown = (e) =>
+      setMovement((m) => ({ ...m, [moveFieldByKey(e.code)]: true }));
+    const handleKeyUp = (e) =>
+      setMovement((m) => ({ ...m, [moveFieldByKey(e.code)]: false }));
 
-    const handleKeyUp = (event) => {
-      switch (event.key) {
-        case "ArrowUp":
-        case "w":
-          setMovement((m) => ({ ...m, forward: false }));
-          break;
-        case "ArrowDown":
-        case "s":
-          setMovement((m) => ({ ...m, backward: false }));
-          break;
-        case "ArrowLeft":
-        case "a":
-          setMovement((m) => ({ ...m, left: false }));
-          break;
-        case "ArrowRight":
-        case "d":
-          setMovement((m) => ({ ...m, right: false }));
-          break;
-        default:
-          break;
-      }
-    };
-
-    window.addEventListener("keydown", handleKeyDown);
-    window.addEventListener("keyup", handleKeyUp);
+    document.addEventListener("keydown", handleKeyDown);
+    document.addEventListener("keyup", handleKeyUp);
 
     return () => {
-      window.removeEventListener("keydown", handleKeyDown);
-      window.removeEventListener("keyup", handleKeyUp);
+      document.removeEventListener("keydown", handleKeyDown);
+      document.removeEventListener("keyup", handleKeyUp);
     };
   }, []);
 
-  // Movement Logic
-  useFrame((state, delta) => {
-    const speed = 5;
-    const moveDistance = speed * delta;
-
-    if (movement.forward) state.camera.position.z -= moveDistance;
-    if (movement.backward) state.camera.position.z += moveDistance;
-    if (movement.left) state.camera.position.x -= moveDistance;
-    if (movement.right) state.camera.position.x += moveDistance;
-  });
+  return movement;
 };
