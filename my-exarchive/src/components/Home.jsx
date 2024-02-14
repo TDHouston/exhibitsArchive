@@ -1,5 +1,4 @@
 import { useGLTF, useTexture } from "@react-three/drei";
-import { useBox } from "@react-three/cannon";
 import * as THREE from "three";
 
 export default function Home(props) {
@@ -11,22 +10,6 @@ export default function Home(props) {
   const textureMaterial = new THREE.MeshStandardMaterial({
     map: texture,
   });
-
-  // Define physics for the floor object
-  const [floorRef] = useBox(() => ({
-    mass: 0, // Static object
-    position: [7.944, 1.31, 0], // Adjust based on the object's position in the scene
-    args: [1, 1, 1], // Adjust the size to match the floor object's dimensions
-    type: "Static",
-  }));
-
-  // Define physics for the hall object
-  const [hallRef] = useBox(() => ({
-    mass: 0, // Static object
-    position: [51.178, 13.743, 32.496], // Adjust based on the object's position
-    args: [1, 1, 1], // Adjust the size to match the hall object's dimensions
-    type: "Static",
-  }));
 
   return (
     <group {...props} dispose={null}>

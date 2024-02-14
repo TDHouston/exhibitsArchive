@@ -3,8 +3,9 @@ import { Canvas } from "@react-three/fiber";
 import "./App.css";
 import Home from "./components/Home";
 import { PointerLockControls } from "@react-three/drei";
-import { Physics } from "@react-three/cannon";
+import { Physics, Debug } from "@react-three/cannon";
 import PlayerObj from "./utils/PlayerObj";
+import PhysicalModel from "./components/NavMesh";
 
 function App() {
   return (
@@ -17,9 +18,16 @@ function App() {
     >
       <ambientLight intensity={3} />
 
+      <Home />
+
       <Physics>
-        <PlayerObj controls position={[5, 12, 40]} args={[0.5]} color="yellow" />
-        <Home />
+        <PhysicalModel position={[0, 0, 0]} />
+        <PlayerObj
+          controls
+          position={[5, 12, 40]}
+          args={[0.5]}
+          color="yellow"
+        />
       </Physics>
 
       <PointerLockControls />
