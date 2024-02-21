@@ -8,3 +8,24 @@ body {
   width: 100%;
   height: 100%;
 }
+
+.htmlScreen iframe {
+  width: 395px;
+  height: 585px;
+  border: none;
+  background: #000000;
+}
+
+.htmlScreen2 iframe {
+  width: 595px;
+  height: 380px;
+  border: none;
+  background: #000000;
+}
+
+.htmlScreen3 iframe {
+  width: 595px;
+  height: 380px;
+  border: none;
+  background: #000000;
+}
