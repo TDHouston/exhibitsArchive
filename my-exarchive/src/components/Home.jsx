@@ -276,7 +276,7 @@ export default function Home(props) {
           transform
           occlude="blending"
           wrapperClass="htmlScreen"
-          position={[20.37, 13.87, -26.22]}
+          position={[20.37, 13.9, -26.2]}
           rotation-x={0}
         >
           <iframe src="https://www.juhous.com/ajaarWatchInteractive" />
@@ -287,7 +287,7 @@ export default function Home(props) {
           transform
           occlude="blending"
           wrapperClass="htmlScreen2"
-          position={[35.23, 14.4, -12.45]}
+          position={[35.1, 14.4, -12.275]}
           rotation-x={0}
           rotation-y={Math.PI * -0.5}
         >
@@ -299,7 +299,7 @@ export default function Home(props) {
           transform
           occlude="blending"
           wrapperClass="htmlScreen3"
-          position={[35.23, 14.4, 12]}
+          position={[35.1, 14.4, 10.3]}
           rotation-x={0}
           rotation-y={Math.PI * -0.5}
         >

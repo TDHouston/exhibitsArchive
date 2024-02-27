@@ -10,16 +10,16 @@ body {
 }
 
 .htmlScreen iframe {
-  width: 425px;
-  height: 600px;
+  width: 965px;
+  height: 700px;
   border: none;
   background: #000000;
 }
 
 .htmlScreen2 iframe,
 .htmlScreen3 iframe {
-  width: 625px;
-  height: 410px;
+  width: 740px;
+  height: 480px;
   border: none;
   background: #000000;
 }
