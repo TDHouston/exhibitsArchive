@@ -10,22 +10,26 @@ body {
 }
 
 .htmlScreen iframe {
-  width: 395px;
-  height: 585px;
+  width: 425px;
+  height: 600px;
   border: none;
   background: #000000;
 }
 
-.htmlScreen2 iframe {
-  width: 595px;
-  height: 380px;
-  border: none;
-  background: #000000;
-}
-
+.htmlScreen2 iframe,
 .htmlScreen3 iframe {
-  width: 595px;
-  height: 380px;
+  width: 625px;
+  height: 410px;
   border: none;
   background: #000000;
+}
+
+.load {
+  font-family: "Ubuntu", sans-serif;
+  font-size: larger;
+}
+
+.htmlScreen4 iframe {
+  width: 210px;
+  height: 140px;
 }

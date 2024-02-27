@@ -12,15 +12,13 @@ export default function Home(props) {
   });
 
   const frames = useGLTF("/models/frames.gltf");
+  const podium = useGLTF("/models/podium.gltf");
+
+  console.log(podium);
 
   return (
     <>
       <group {...props} dispose={null}>
-        <mesh
-          name="hall"
-          geometry={nodes.hall.geometry}
-          material={textureMaterial}
-        />
         <mesh
           name="leftFront"
           geometry={nodes.leftFront.geometry}
@@ -278,10 +276,10 @@ export default function Home(props) {
           transform
           occlude="blending"
           wrapperClass="htmlScreen"
-          position={[20.37, 13.75, -26.225]}
+          position={[20.37, 13.87, -26.22]}
           rotation-x={0}
         >
-          <iframe src="https://bruno-simon.com/html/" />
+          <iframe src="https://www.juhous.com/ajaarWatchInteractive" />
         </Html>
       </primitive>
       <primitive object={frames.scene.children[1]}>
@@ -289,11 +287,11 @@ export default function Home(props) {
           transform
           occlude="blending"
           wrapperClass="htmlScreen2"
-          position={[35.23, 14.3, -12.45]}
+          position={[35.23, 14.4, -12.45]}
           rotation-x={0}
           rotation-y={Math.PI * -0.5}
         >
-          <iframe src="https://bruno-simon.com/html/" />
+          <iframe src="https://www.juhous.com/ajaar" />
         </Html>
       </primitive>
       <primitive object={frames.scene.children[2]}>
@@ -301,12 +299,26 @@ export default function Home(props) {
           transform
           occlude="blending"
           wrapperClass="htmlScreen3"
-          position={[35.23, 14.3, 12]}
+          position={[35.23, 14.4, 12]}
           rotation-x={0}
           rotation-y={Math.PI * -0.5}
         >
-          <iframe src="https://bruno-simon.com/html/" />
-        </Html>{" "}
+          <iframe src="https://www.juhous.com/beloved" />
+        </Html>
+      </primitive>
+
+      <primitive object={podium.scene}>
+        <Html
+          transform
+          occlude="blending"
+          wrapperClass="htmlScreen4"
+          position={[39.4, 7.62, 37.32]}
+          rotation-x={19.8}
+          rotation-y={Math.PI * 0.749}
+          rotation-z={5.5}
+        >
+          <iframe src="https://www.juhous.com/contact" />
+        </Html>
       </primitive>
     </>
   );

@@ -13,6 +13,10 @@ const PlayerObj = (props) => {
 
   const { camera } = useThree();
 
+  useEffect(() => {
+    camera.rotation.y = Math.PI / 2; // Rotate camera 90 degrees to the left
+  }, [camera]);
+
   const [ref, api] = useSphere((index) => ({
     mass: 1,
     type: "Dynamic",

@@ -10,7 +10,6 @@ export function Model(props) {
   const { nodes, materials } = useGLTF('/scene.gltf')
   return (
     <group {...props} dispose={null}>
-      <mesh name="hall" geometry={nodes.hall.geometry} material={materials.hallDefault} />
       <mesh name="leftFront" geometry={nodes.leftFront.geometry} material={materials.Bench} />
       <mesh name="leftMiddle" geometry={nodes.leftMiddle.geometry} material={materials.Bench} />
       <mesh name="leftBack" geometry={nodes.leftBack.geometry} material={materials.Bench} />
@@ -28,7 +27,7 @@ export function Model(props) {
       <mesh name="poleOne" geometry={nodes.poleOne.geometry} material={materials['Wood.002']} />
       <mesh name="poleTwo" geometry={nodes.poleTwo.geometry} material={materials['Wood.002']} />
       <mesh name="Cube005" geometry={nodes.Cube005.geometry} material={materials.DefaultRoom} />
-      <mesh name="Cube005_1" geometry={nodes.Cube005_1.geometry} material={materials.Floor} />
+      <mesh name="Cube005_1" geometry={nodes.Cube005_1.geometry} material={materials['Grey Parquet']} />
       <mesh name="Cube004" geometry={nodes.Cube004.geometry} material={materials.Inside} />
       <mesh name="Cube004_1" geometry={nodes.Cube004_1.geometry} material={materials.Default} />
       <mesh name="Cylinder078" geometry={nodes.Cylinder078.geometry} material={materials['Metallic.White']} />

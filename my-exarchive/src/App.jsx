@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import * as THREE from "three";
 import { Canvas } from "@react-three/fiber";
 import "./App.css";
@@ -6,32 +7,42 @@ import { PointerLockControls } from "@react-three/drei";
 import { Physics } from "@react-three/cannon";
 import PlayerObj from "./utils/PlayerObj";
 import PhysicalModel from "./components/PhysicalModel";
+import InstructionsOverlay from "./components/InstructionsOverlay";
 
 function App() {
+  const [showInstructions, setShowInstructions] = useState(true);
+
   return (
-    <Canvas
-      gl={{
-        antialias: true,
-        toneMapping: THREE.ACESFilmicToneMapping,
-        outputColorSpace: THREE.SRGBColorSpace,
-      }}
-    >
-      <ambientLight intensity={3} />
+    <>
+      {showInstructions && (
+        <InstructionsOverlay onClose={() => setShowInstructions(false)} />
+      )}
 
-      <Home />
-
-      <Physics>
-        <PhysicalModel position={[0, 0, 0]} />
-        <PlayerObj
-          controls
-          position={[5, 12, 40]}
-          args={[5.5]}
-          color="yellow"
-        />
-      </Physics>
-
-      <PointerLockControls />
-    </Canvas>
+      {/* Conditionally render Canvas only after instructions are acknowledged */}
+      {!showInstructions && (
+        <Canvas
+          gl={{
+            antialias: true,
+            toneMapping: THREE.ACESFilmicToneMapping,
+            outputColorSpace: THREE.SRGBColorSpace,
+          }}
+        >
+          <ambientLight intensity={3} />
+          <Home />
+          <Physics>
+            <PhysicalModel position={[0, 0, 0]} />
+            <PlayerObj
+              controls
+              position={[55, 12, 33]}
+              args={[3.5]}
+              color="yellow"
+            />
+          </Physics>
+          <PointerLockControls />
+        </Canvas>
+      )}
+    </>
   );
 }
+
 export default App;

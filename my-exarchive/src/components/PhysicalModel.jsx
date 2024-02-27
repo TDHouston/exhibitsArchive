@@ -4,7 +4,6 @@ import { useTrimesh } from "@react-three/cannon";
 
 export default function PhysicalModel({ position }) {
   const { nodes } = useGLTF("/models/navMesh.gltf");
-  console.log(nodes);
   const navMeshGeometry = nodes.NavMesh.geometry;
 
   const [vertices, indices] = useMemo(() => {
@@ -19,9 +18,5 @@ export default function PhysicalModel({ position }) {
     position,
   }));
 
-  return (
-    <mesh ref={ref} visible={false}>
-      {/* Mesh not intended to be rendered; only for collision detection */}
-    </mesh>
-  );
+  return <mesh ref={ref} visible={false}></mesh>;
 }
