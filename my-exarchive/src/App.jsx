@@ -18,7 +18,6 @@ function App() {
         <InstructionsOverlay onClose={() => setShowInstructions(false)} />
       )}
 
-      {/* Conditionally render Canvas only after instructions are acknowledged */}
       {!showInstructions && (
         <Canvas
           gl={{
@@ -30,13 +29,13 @@ function App() {
           <ambientLight intensity={3} />
           <Home />
           <Physics>
-            <PhysicalModel position={[0, 0, 0]} />
-            <PlayerObj
-              controls
-              position={[55, 12, 33]}
-              args={[3.5]}
-              color="yellow"
-            />
+              <PhysicalModel position={[0, 0, 0]} />
+              <PlayerObj
+                controls
+                position={[55, 7.5, 33]}
+                args={[5]}
+                color="yellow"
+              />
           </Physics>
           <PointerLockControls />
         </Canvas>

@@ -14,8 +14,6 @@ export default function Home(props) {
   const frames = useGLTF("/models/frames.gltf");
   const podium = useGLTF("/models/podium.gltf");
 
-  console.log(podium);
-
   return (
     <>
       <group {...props} dispose={null}>
@@ -279,7 +277,7 @@ export default function Home(props) {
           position={[20.37, 13.9, -26.2]}
           rotation-x={0}
         >
-          <iframe src="https://www.juhous.com/ajaarWatchInteractive" />
+          <iframe src="https://spatial-dev-portfolio.vercel.app/ajaarWatchInteractive" />
         </Html>
       </primitive>
       <primitive object={frames.scene.children[1]}>
@@ -291,7 +289,7 @@ export default function Home(props) {
           rotation-x={0}
           rotation-y={Math.PI * -0.5}
         >
-          <iframe src="https://www.juhous.com/ajaar" />
+          <iframe src="https://spatial-dev-portfolio.vercel.app/ajaar" />
         </Html>
       </primitive>
       <primitive object={frames.scene.children[2]}>
@@ -303,7 +301,7 @@ export default function Home(props) {
           rotation-x={0}
           rotation-y={Math.PI * -0.5}
         >
-          <iframe src="https://www.juhous.com/beloved" />
+          <iframe src="https://spatial-dev-portfolio.vercel.app/beloved" />
         </Html>
       </primitive>
 

@@ -32,4 +32,6 @@ body {
 .htmlScreen4 iframe {
   width: 210px;
   height: 140px;
+  border: none;
+  background: #000000;
 }
