@@ -315,7 +315,7 @@ export default function Home(props) {
           rotation-y={Math.PI * 0.749}
           rotation-z={5.5}
         >
-          <iframe src="https://www.juhous.com/contact" />
+          <iframe src="https://spatial-dev-portfolio.vercel.app/contact" />
         </Html>
       </primitive>
     </>
