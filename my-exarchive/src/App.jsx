@@ -8,12 +8,14 @@ import { Physics } from "@react-three/cannon";
 import PlayerObj from "./utils/PlayerObj";
 import PhysicalModel from "./components/PhysicalModel";
 import InstructionsOverlay from "./components/InstructionsOverlay";
+import { Analytics } from "@vercel/analytics/react";
 
 function App() {
   const [showInstructions, setShowInstructions] = useState(true);
 
   return (
     <>
+      <Analytics />
       {showInstructions && (
         <InstructionsOverlay onClose={() => setShowInstructions(false)} />
       )}
@@ -29,13 +31,13 @@ function App() {
           <ambientLight intensity={3} />
           <Home />
           <Physics>
-              <PhysicalModel position={[0, 0, 0]} />
-              <PlayerObj
-                controls
-                position={[55, 7.5, 33]}
-                args={[5]}
-                color="yellow"
-              />
+            <PhysicalModel position={[0, 0, 0]} />
+            <PlayerObj
+              controls
+              position={[55, 7.5, 33]}
+              args={[5]}
+              color="yellow"
+            />
           </Physics>
           <PointerLockControls />
         </Canvas>
