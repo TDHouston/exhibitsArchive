@@ -9,13 +9,13 @@ import PlayerObj from "./utils/PlayerObj";
 import PhysicalModel from "./components/PhysicalModel";
 import InstructionsOverlay from "./components/InstructionsOverlay";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 function App() {
   const [showInstructions, setShowInstructions] = useState(true);
 
   return (
     <>
-      <Analytics />
       {showInstructions && (
         <InstructionsOverlay onClose={() => setShowInstructions(false)} />
       )}
@@ -42,6 +42,17 @@ function App() {
           <PointerLockControls />
         </Canvas>
       )}
+
+
+
+
+
+
+
+
+
+      <Analytics />
+      <SpeedInsights />
     </>
   );
 }
