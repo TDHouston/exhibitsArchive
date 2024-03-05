@@ -35,7 +35,7 @@ function App() {
             <PlayerObj
               controls
               position={[55, 7.5, 33]}
-              args={[5]}
+              args={[4.8]}
               color="yellow"
             />
           </Physics>
