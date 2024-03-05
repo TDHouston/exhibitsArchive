@@ -1,3 +1,5 @@
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import React, { useState } from "react";
 import * as THREE from "three";
 import { Canvas } from "@react-three/fiber";
@@ -8,8 +10,6 @@ import { Physics } from "@react-three/cannon";
 import PlayerObj from "./utils/PlayerObj";
 import PhysicalModel from "./components/PhysicalModel";
 import InstructionsOverlay from "./components/InstructionsOverlay";
-import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 
 function App() {
   const [showInstructions, setShowInstructions] = useState(true);
@@ -42,9 +42,6 @@ function App() {
           <PointerLockControls />
         </Canvas>
       )}
-
-
-
 
 
 
