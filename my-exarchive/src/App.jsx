@@ -1,5 +1,5 @@
 import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/next";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import React, { useState } from "react";
 import * as THREE from "three";
 import { Canvas } from "@react-three/fiber";
@@ -42,11 +42,6 @@ function App() {
           <PointerLockControls />
         </Canvas>
       )}
-
-
-
-
-
 
       <Analytics />
       <SpeedInsights />
