@@ -1,0 +1,37 @@
+#root,
+html,
+body {
+  position: fixed;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.htmlScreen iframe {
+  width: 965px;
+  height: 700px;
+  border: none;
+  background: #000000;
+}
+
+.htmlScreen2 iframe,
+.htmlScreen3 iframe {
+  width: 740px;
+  height: 480px;
+  border: none;
+  background: #000000;
+}
+
+.load {
+  font-family: "Ubuntu", sans-serif;
+  font-size: larger;
+}
+
+.htmlScreen4 iframe {
+  width: 210px;
+  height: 140px;
+  border: none;
+  background: #000000;
+}
