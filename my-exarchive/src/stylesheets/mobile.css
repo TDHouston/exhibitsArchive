@@ -1,0 +1,26 @@
+#main {
+  background: #1e1a20;
+}
+
+#mCanvas {
+  top: 0;
+  left: 0;
+  outline: none;
+  position: fixed !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  position: relative;
+  font-family: "Cabin", sans-serif;
+  color: #ffeded;
+  text-transform: uppercase;
+  font-size: 7vmin;
+  padding-left: 10%;
+  padding-right: 10%;
+}

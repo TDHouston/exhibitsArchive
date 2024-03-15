@@ -1,5 +1,3 @@
-import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/react";
 import React, { useState } from "react";
 import * as THREE from "three";
 import { Canvas } from "@react-three/fiber";
@@ -19,32 +17,30 @@ function DExperience() {
       {showInstructions && (
         <InstructionsOverlay onClose={() => setShowInstructions(false)} />
       )}
-
-      {!showInstructions && (
-        <Canvas
-          gl={{
-            antialias: true,
-            toneMapping: THREE.ACESFilmicToneMapping,
-            outputColorSpace: THREE.SRGBColorSpace,
-          }}
-        >
-          <ambientLight intensity={3} />
-          <Home />
-          <Physics>
-            <PhysicalModel position={[0, 0, 0]} />
-            <PlayerObj
-              controls
-              position={[55, 7.5, 33]}
-              args={[4.8]}
-              color="yellow"
-            />
-          </Physics>
-          <PointerLockControls />
-        </Canvas>
-      )}
-
-      <Analytics />
-      <SpeedInsights />
+      <main id="dCanvas">
+        {!showInstructions && (
+          <Canvas
+            gl={{
+              antialias: true,
+              toneMapping: THREE.ACESFilmicToneMapping,
+              outputColorSpace: THREE.SRGBColorSpace,
+            }}
+          >
+            <ambientLight intensity={3} />
+            <Home />
+            <Physics>
+              <PhysicalModel position={[0, 0, 0]} />
+              <PlayerObj
+                controls
+                position={[55, 7.5, 33]}
+                args={[4.8]}
+                color="yellow"
+              />
+            </Physics>
+            <PointerLockControls />
+          </Canvas>
+        )}
+      </main>
     </>
   );
 }
